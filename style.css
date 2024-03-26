@@ -1,20 +1,24 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:root{
-    font-size: 62.5%;
+:root {
+  font-size: 62.5%;
 
-    --base-title: #b52184;
-    --base-text: #312D64;
-    --cards-bg: linear-gradient(90deg, rgba(52,49,147,1) 0%, rgba(48,44,99,1) 100%);
+  --base-title: #b52184;
+  --base-text: #312d64;
+  --gradient-background: linear-gradient(
+    90deg,
+    rgba(52, 49, 147, 1) 0%,
+    rgba(48, 44, 99, 1) 100%
+  );
 }
 
-body{
-    font-size: 1.6rem;
+body {
+  font-size: 1.6rem;
 }
 
 html,
@@ -23,173 +27,263 @@ input {
   font-family: "Mulish", sans-serif;
 }
 
-.container{
-    width: min(112rem, 100%);
-    margin: 0 auto;
+.container {
+  width: min(112rem, 100%);
+  margin: 0 auto;
 }
 
-h1,h2,label{
-    color: var(--base-title);
+h1,
+h2,
+label {
+  color: var(--base-title);
 }
 
 p,
 input::placeholder,
-textarea::placeholder{
-    color: var(--base-text);
-    font-size: 1.6rem;
+textarea::placeholder {
+  color: var(--base-text);
+  font-size: 1.6rem;
 }
 
-header{
+header {
+  display: grid;
+  justify-content: center;
+  grid-template:
+    "astronauta"
+    "hdContent";
+
+  & .astronauta {
+    grid-area: astronauta;
+    width: 36.4rem;
+    margin-bottom: 1.7rem;
+  }
+
+  & .header-content {
+    grid-area: hdContent;
+    margin-bottom: 9.3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    & .astronauta{
-        width: 36.4rem;
-        margin-bottom: 1.7rem;
+    & h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
     }
 
-    & h1{
-        font-size: 3.2rem;
-        font-weight: 900;
-        margin-bottom: .5rem;
+    & p {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 3.5rem;
     }
 
-    & p{
-        font-size: 2rem;
-        font-weight: 600;
+    & .btn-header {
+      align-self: center;
     }
-
-    & .btn-header{
-        max-width: 5.9rem;
-        margin-top: 3.5rem;
-        margin-bottom: 9.3rem;
-    }
+  }
 }
 
-main{
-    & .cards{
-        background: var(--cards-bg);
+main {
+  & #cards {
+    background: var(--gradient-background);
+    & .container-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      padding: 5.2rem 0;
+
+      & .card {
+        background-color: #fff;
+        padding: 2.6rem;
+        border-radius: 2rem;
+        width: 35.2rem;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap: 5rem;
-        padding: 5.2rem 0;
+        gap: 3.3rem;
 
-        & .card{
-            background-color: #fff;
-            padding: 2.6rem;
-            border-radius: 2rem;
-            width: 35.2rem;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 3.3rem;
-
-            & img{
-                width: 8rem;
-                height: 8rem;
-            }
-
-            & .details{
-                max-width: 26.5rem;
-                
-                & h2{
-                    font-size: 3rem;
-                    font-weight: 900;
-                }
-    
-                & p{
-                    font-size: 1.6rem;
-                    font-weight: 600;
-                }
-            }
+        & img {
+          width: 8rem;
+          height: 8rem;
         }
-    }
 
-    & .formulario{
-        max-width: 35.2rem;
-        margin: 6.2rem auto;
-        
-        & #contato{
-            display: flex;
-            flex-direction: column;
-            gap: 2.4rem;
+        & .details {
+          max-width: 26.5rem;
 
-            & h2{
-                margin-bottom: 2.4rem;
-                font-size: 3.2rem;
-                font-weight: 900;
-            }
+          & h2 {
+            font-size: 3rem;
+            font-weight: 900;
+          }
 
-            & .nome,.e-mail{
-                position: relative;
-            }
-
-            & input{
-                padding: 1.6rem;
-                padding-left: 5rem;
-                font-weight: bold;
-                position: relative;
-                width: 100%;
-            }
-
-            & label.nome::before,
-            label.e-mail::before{
-                width: 2.4rem;
-                height: 2.4rem;
-                z-index: 1;
-                top: -.2rem;
-                left: 1.4rem;
-                position: absolute;
-            }
-
-            & label.nome::before{
-                content: url(./assets/person.png);
-            }
-            
-            & label.e-mail::before{
-                content: url(./assets/email.png);
-            }
-
-
-            & textarea{
-                padding: 1.2rem 1.6rem 1.6rem 1.6rem;
-                line-height: 140%;
-                font-weight: 600;
-            }
-
-            & input,
-            textarea{
-                border: 1px solid var(--base-text);
-                border-radius: 1.6rem;
-            }
-
-            & input:focus,
-            textarea:focus{
-                outline: none;
-            }
-
-            & button{
-                background: var(--cards-bg);
-                width: 15.1rem;
-                padding: 1.6rem;
-                color: #fff;
-                border-radius: 1.6rem;
-                border: none;
-            }
+          & p {
+            font-size: 1.6rem;
+            font-weight: 600;
+          }
         }
+      }
     }
+  }
+
+  & .container-form {
+    margin: 0 auto;
+    padding: 4.2rem 0;
+
+    & #contato {
+      max-width: 35.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      margin: 0 auto;
+
+      & h2 {
+        margin-bottom: 2.4rem;
+        font-size: 3.2rem;
+        font-weight: 900;
+      }
+
+      & .nome,
+      .e-mail {
+        position: relative;
+      }
+
+      & input {
+        padding: 1.6rem;
+        padding-left: 5rem;
+        font-weight: bold;
+        position: relative;
+        width: 100%;
+      }
+
+      & label.nome::before,
+      label.e-mail::before {
+        width: 2.4rem;
+        height: 2.4rem;
+        z-index: 1;
+        top: -0.2rem;
+        left: 1.4rem;
+        position: absolute;
+      }
+
+      & label.nome::before {
+        content: url(./assets/person.png);
+      }
+
+      & label.e-mail::before {
+        content: url(./assets/email.png);
+      }
+
+      & textarea {
+        padding: 1.2rem 1.6rem 1.6rem;
+        line-height: 140%;
+        font-weight: 600;
+      }
+
+      & input,
+      textarea {
+        border: 1px solid var(--base-text);
+        border-radius: 1.6rem;
+      }
+
+      & input:focus,
+      textarea:focus {
+        outline: none;
+      }
+
+      & button {
+        background: var(--gradient-background);
+        width: 15.2rem;
+        padding: 1.6rem;
+        color: #fff;
+        border-radius: 1.6rem;
+        border: none;
+        font-size: 1.4rem;
+        font-weight: bold;
+        line-height: 2.4rem;
+      }
+    }
+  }
 }
 
-footer{
-    background: var(--cards-bg);
-    padding: 3.2rem 1.6rem;
-    & .container{
-        display: flex;
-        justify-content: center;
+footer {
+  background: var(--gradient-background);
+  padding: 3.2rem 1.6rem;
+  & .container {
+    display: flex;
+    justify-content: center;
 
-        & p{
-            color: #fff;
-        }
+    & p {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
     }
+  }
+}
+
+@media (min-width: 1440px) {
+  header {
+    grid-template:
+      "hdContent astronauta"
+      "hdContent astronauta";
+    justify-content: space-between;
+
+    & .astronauta {
+      width: 100%;
+    }
+
+    & .header-content {
+      margin-bottom: 13.6rem;
+      padding-top: 31.2rem;
+      align-items: baseline;
+
+      & h1 {
+        font-size: 5.8rem;
+      }
+
+      & p {
+        font-size: 3.2rem;
+        margin-bottom: 17.9rem;
+      }
+
+      & .btn-header {
+        align-self: baseline;
+      }
+    }
+  }
+
+  main {
+    & #cards {
+      & .container-cards {
+        flex-direction: row;
+      }
+    }
+
+    & .formulario {
+      position: relative;
+
+      & .container-form {
+        & #contato {
+          & h2 {
+            margin-bottom: 3rem;
+            font-size: 4.2rem;
+          }
+        }
+      }
+    }
+
+    & .container-form {
+      position: relative;
+
+      & #contato {
+        max-width: 59.5rem;
+        margin: 0;
+      }
+    }
+
+    & .formulario::after {
+      content: url(./assets/estrelas.png);
+      position: absolute;
+      bottom: -0.4rem;
+      right: 0;
+    }
+  }
 }
