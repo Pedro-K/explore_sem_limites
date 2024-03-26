@@ -7,8 +7,189 @@
 
 :root{
     font-size: 62.5%;
+
+    --base-title: #b52184;
+    --base-text: #312D64;
+    --cards-bg: linear-gradient(90deg, rgba(52,49,147,1) 0%, rgba(48,44,99,1) 100%);
 }
 
 body{
     font-size: 1.6rem;
+}
+
+html,
+body,
+input {
+  font-family: "Mulish", sans-serif;
+}
+
+.container{
+    width: min(112rem, 100%);
+    margin: 0 auto;
+}
+
+h1,h2,label{
+    color: var(--base-title);
+}
+
+p,
+input::placeholder,
+textarea::placeholder{
+    color: var(--base-text);
+    font-size: 1.6rem;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & .astronauta{
+        width: 36.4rem;
+        margin-bottom: 1.7rem;
+    }
+
+    & h1{
+        font-size: 3.2rem;
+        font-weight: 900;
+        margin-bottom: .5rem;
+    }
+
+    & p{
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    & .btn-header{
+        max-width: 5.9rem;
+        margin-top: 3.5rem;
+        margin-bottom: 9.3rem;
+    }
+}
+
+main{
+    & .cards{
+        background: var(--cards-bg);
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        padding: 5.2rem 0;
+
+        & .card{
+            background-color: #fff;
+            padding: 2.6rem;
+            border-radius: 2rem;
+            width: 35.2rem;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3.3rem;
+
+            & img{
+                width: 8rem;
+                height: 8rem;
+            }
+
+            & .details{
+                max-width: 26.5rem;
+                
+                & h2{
+                    font-size: 3rem;
+                    font-weight: 900;
+                }
+    
+                & p{
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    & .formulario{
+        max-width: 35.2rem;
+        margin: 6.2rem auto;
+        
+        & #contato{
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+
+            & h2{
+                margin-bottom: 2.4rem;
+                font-size: 3.2rem;
+                font-weight: 900;
+            }
+
+            & .nome,.e-mail{
+                position: relative;
+            }
+
+            & input{
+                padding: 1.6rem;
+                padding-left: 5rem;
+                font-weight: bold;
+                position: relative;
+                width: 100%;
+            }
+
+            & label.nome::before,
+            label.e-mail::before{
+                width: 2.4rem;
+                height: 2.4rem;
+                z-index: 1;
+                top: -.2rem;
+                left: 1.4rem;
+                position: absolute;
+            }
+
+            & label.nome::before{
+                content: url(./assets/person.png);
+            }
+            
+            & label.e-mail::before{
+                content: url(./assets/email.png);
+            }
+
+
+            & textarea{
+                padding: 1.2rem 1.6rem 1.6rem 1.6rem;
+                line-height: 140%;
+                font-weight: 600;
+            }
+
+            & input,
+            textarea{
+                border: 1px solid var(--base-text);
+                border-radius: 1.6rem;
+            }
+
+            & input:focus,
+            textarea:focus{
+                outline: none;
+            }
+
+            & button{
+                background: var(--cards-bg);
+                width: 15.1rem;
+                padding: 1.6rem;
+                color: #fff;
+                border-radius: 1.6rem;
+                border: none;
+            }
+        }
+    }
+}
+
+footer{
+    background: var(--cards-bg);
+    padding: 3.2rem 1.6rem;
+    & .container{
+        display: flex;
+        justify-content: center;
+
+        & p{
+            color: #fff;
+        }
+    }
 }
